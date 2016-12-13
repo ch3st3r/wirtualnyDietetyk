@@ -20,7 +20,7 @@ class VirtualNutritionistController {
             Meal currentMeal;
 
             Meal.list().each{
-
+               it.name;
             }
 
 

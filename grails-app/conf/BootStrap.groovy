@@ -53,14 +53,25 @@ class BootStrap {
         meal1.mealDetailsInfo = mealDetails1;
         meal1.save(flush:true);
 
+
         Meal meal2 = new Meal('meal2', 'xxx2');
         MealDetailsInfo mealDetails2 = new MealDetailsInfo();
         mealDetails2 = mealService.countMealDetails(mealDetails2, cheese, 40);
-        mealDetails2 = mealService.countMealDetails(mealDetails2, cheese, 40);
+        mealDetails2 = mealService.countMealDetails(mealDetails2, ham, 40);
         meal2.addToIngredients(ing3);
         meal2.addToIngredients(ing4);
         meal2.mealDetailsInfo = mealDetails2;
         meal2.save(flush:true);
+
+       /* Meal meal3 = new Meal('meal3', 'xxx3');
+        MealDetailsInfo mealDetails3 = new MealDetailsInfo();
+        mealDetails3 = mealService.countMealDetails(mealDetails3, papryka, 30);
+        mealDetails3 = mealService.countMealDetails(mealDetails3, platki, 60);
+        meal3.addToIngredients(ing5);
+        meal3.addToIngredients(ing6);
+        meal3.mealDetailsInfo = mealDetails3;
+        meal3.save(flush:true);
+*/
 
         Meal meal3 = new Meal('meal3', 'xxx3');
         MealDetailsInfo mealDetails3 = new MealDetailsInfo();
@@ -70,6 +81,8 @@ class BootStrap {
         meal3.addToIngredients(ing6);
         meal3.mealDetailsInfo = mealDetails3;
         meal3.save(flush:true);
+
+
 
         def volleyball = new Sport('siatkowka', 150).save(flush:true);
         def football = new Sport('football', 200).save(flush:true);
