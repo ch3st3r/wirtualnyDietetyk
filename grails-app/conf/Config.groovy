@@ -136,6 +136,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/meal/dupa':       ['permitAll'],
     '/meal/dupa*':       ['permitAll'],
     '/ingredient/*':       ['permitAll'],
+    '/virtualNutritionist/*':   ['permitAll'],
 ]
 
 

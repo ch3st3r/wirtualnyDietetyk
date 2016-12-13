@@ -6,9 +6,10 @@ package com.myApp
 class Meal {
     String name;
     String receipt;
+    MealDetailsInfo mealDetailsInfo;
 
     static hasMany = [ingredients: Ingredient]
-    static hasOne = [mealDetailsInfo: MealDetailsInfo]
+    /*static hasOne = [mealDetailsInfo: MealDetailsInfo]*/
 
     Meal(String name, String receipt){
         this.name = name;

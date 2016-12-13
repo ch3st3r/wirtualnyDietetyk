@@ -49,6 +49,8 @@
 					
 				</li>
 				</g:if>
+
+				${mealInstance?.mealDetailsInfo?.kcal}
 			
 			</ol>
 			<g:form url="[resource:mealInstance, action:'delete']" method="DELETE">

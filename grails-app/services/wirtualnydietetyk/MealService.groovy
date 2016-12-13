@@ -30,11 +30,25 @@ class MealService {
     }
 
 
-    def countMealDetails(MealDetailsInfo mealDetails, product, double weight){
+    def countMealDetails(MealDetailsInfo mealDetails, Product product, double weight){
         mealDetails.kcal += product.kcal * weight / product.weight;
         mealDetails.carbohydrates += product.carbohydrates * weight / product.weight;
         mealDetails.protein += product.protein * weight / product.weight;
         mealDetails.fats += product.fats * weight / product.weight;
         return mealDetails;
     }
+
+/*
+    def bootStrapMethod(){
+        def ing1 = new Ingredient(Product.findByName(rise, 50).save(flush:true);
+        def ing2 = new Ingredient(kurczak, 200).save(flush:true);;
+        def ing3 = new Ingredient(cheese, 40).save(flush:true);
+        def ing4 = new Ingredient(ham, 40).save(flush:true);
+        def ing5 = new Ingredient(papryka, 30).save(flush:true);
+        def ing6 = new Ingredient(platki, 60).save(flush:true);
+
+        Meal meal1 = new Meal('meal1', 'xxx1').save(flush:true);
+        meal1.addToIngredients(ing1);
+        meal1.save(flush:true)
+    }*/
 }

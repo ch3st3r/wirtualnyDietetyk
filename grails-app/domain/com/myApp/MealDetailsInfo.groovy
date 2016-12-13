@@ -6,8 +6,10 @@ class MealDetailsInfo {
     double carbohydrates;
     double fats;
 
-    static belongsTo = [meal:Meal]
+    static belongsTo = [meal:Meal, userMeal:UserMeal]
 
     static constraints = {
+        meal (nullable: true, validator: {field, inst -> inst.userMeal || field})
+        userMeal nullable:true
     }
 }

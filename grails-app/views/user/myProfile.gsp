@@ -96,6 +96,7 @@
     </b>
     <br>
 
+    <g:link controller="virtualNutritionist" action="generateDiet">button</g:link>
 </div>
 
 
