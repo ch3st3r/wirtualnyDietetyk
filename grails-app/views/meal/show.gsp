@@ -50,8 +50,14 @@
 				</li>
 				</g:if>
 
-				${mealInstance?.mealDetailsInfo?.kcal}
-			
+				${mealInstance?.mealDetailsInfo?.kcal} kcal<br>
+				${mealInstance?.mealDetailsInfo?.protein} protein
+				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.protein}" x="4"></meal:percentValue><br>
+				${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
+				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.carbohydrates}" x="4"></meal:percentValue><br>
+				${mealInstance?.mealDetailsInfo?.fats} fats
+				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.fats}" x="9"></meal:percentValue><br>
+
 			</ol>
 			<g:form url="[resource:mealInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
