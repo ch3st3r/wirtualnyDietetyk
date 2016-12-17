@@ -13,8 +13,10 @@ class VirtualNutritionistController {
         CurrentUserMacro currentUserMacro = virtualNutritionistService.getCurrentUserMacro(springSecurityService.getCurrentUser());
         ArrayList<Meal> utilisedMeals = new ArrayList<Meal>();
         Meal currentMeal;
+        UserMeal userMeal;
+        Diet diet = new Diet();
 
-        for(int i = 1; i<3; i++) {
+        for(int i = 1; i<6; i++) {
             double previousCoefficient = 100;
             double coefficient;
 
@@ -26,7 +28,7 @@ class VirtualNutritionistController {
                 }
             }
 
-            UserMeal userMeal = virtualNutritionistService.createUserMeal(currentMeal, currentUserMacro.kcal);
+            userMeal = virtualNutritionistService.createUserMeal(currentMeal, currentUserMacro.kcal);
             userMeal.ingredients.each {
                 println it.product.name + ' ' + it.weight
             }
@@ -37,9 +39,15 @@ class VirtualNutritionistController {
             utilisedMeals.each{
                 println it.name;
             }
+            diet.addToUserMeal(userMeal);
 
+            if(i%3 == 0){
+                currentUserMacro = virtualNutritionistService.getCurrentUserMacro(springSecurityService.getCurrentUser());
+            }
 
         }
+        diet.save(flush:true);
+
         render 'status ok';
     }
 }

@@ -6,6 +6,7 @@ class UserMeal {
     MealDetailsInfo mealDetailsInfo
 
     static hasMany = [ingredients: Ingredient]
+    static belongsTo = [diet: Diet]
     /*static hasOne = [mealDetailsInfo: MealDetailsInfo]*/
 
     UserMeal(String name, String receipt){

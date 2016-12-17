@@ -25,6 +25,13 @@ class BootStrap {
         def platki = new Product('platki owsiane', 100, 'g', 366, 69.3, 11.9, 7.2).save(flush:true);
         def papryka = new Product('papryka', 100, 'g', 28, 6.6, 1.3, 0.5).save(flush:true);
         def kurczak = new Product('kurczak', 100, 'g', 99, 0, 21.5, 1.3).save(flush:true);
+        def mussliTropikalne = new Product('musli tropikalne', 100, 'g', 379, 69, 7.7, 6.4).save(flush:true);
+        def jogurtNaturalny = new Product('jogurt naturalny', 100, 'g', 60, 6.2, 4.3, 2.0).save(flush:true);
+        def odtluszczoneMleko = new Product('odtłuszczone mleko', 100, 'ml', 36, 4.7, 3.1, 0.5).save(flush:true);
+        def sokPomarańczowy = new Product('sok pomarańczowy', 100, 'ml', 41, 9.0, 0.8, 0.2).save(flush:true);
+        def jablko = new Product('jabłko', 100, 'g', 52, 13.8, 0.3, 0.2).save(flush:true)
+        def jogurtOwocowy = new Product('jogurt owocowy', 100, 'g', 74, 10.8, 2.8, 1.6).save(flush:true)
+        def banan = new Product('banan', 100, 'g', 95, 23.5, 1.0, 0.3).save(flush:true)
 /*
         mealService.bootStrapMethod();*/
 
@@ -35,14 +42,16 @@ class BootStrap {
         def ing5 = new Ingredient(papryka, 30);
         def ing6 = new Ingredient(platki, 60);
 
-        if(ing1 == null){
-            println 'x null';
-        }
+        def ing7 = new Ingredient(mussliTropikalne, 60);
+        def ing8 = new Ingredient(jogurtNaturalny, 80);
+        def ing9 = new Ingredient(odtluszczoneMleko, 200);
+        def ing10 = new Ingredient(sokPomarańczowy, 150);
 
-    /*    Meal meal1 = new Meal('meal1', 'xxx1');
-        meal1.addToIngredients(ing1);
-        meal1.save(flush:true)
-*/
+        def ing11 = new Ingredient(jablko, 300);
+        def ing12 = new Ingredient(jogurtOwocowy, 150);
+
+        def ing13 = new Ingredient(banan, 200);
+
 
         Meal meal1 = new Meal('meal1', 'xxx1');
         MealDetailsInfo mealDetails1 = new MealDetailsInfo();
@@ -72,6 +81,34 @@ class BootStrap {
         meal3.mealDetailsInfo = mealDetails3;
         meal3.save(flush:true);
 
+        Meal meal4 = new Meal('meal4 - sniadanie', 'xxx5');
+        MealDetailsInfo mealDetails4 = new MealDetailsInfo();
+        mealDetails4 = mealService.countMealDetails(mealDetails4, mussliTropikalne, 60);
+        mealDetails4 = mealService.countMealDetails(mealDetails4, jogurtNaturalny, 80);
+        mealDetails4 = mealService.countMealDetails(mealDetails4, odtluszczoneMleko, 200);
+        mealDetails4 = mealService.countMealDetails(mealDetails4, sokPomarańczowy, 150);
+        meal4.addToIngredients(ing7);
+        meal4.addToIngredients(ing8);
+        meal4.addToIngredients(ing9);
+        meal4.addToIngredients(ing10);
+        meal4.mealDetailsInfo = mealDetails4;
+        meal4.save(flush:true);
+
+        Meal meal5 = new Meal('meal5 - drugie śniadanie', 'xxx5');
+        MealDetailsInfo mealDetails5 = new MealDetailsInfo();
+        mealDetails5 = mealService.countMealDetails(mealDetails5, jablko, 300);
+        mealDetails5 = mealService.countMealDetails(mealDetails5, jogurtOwocowy, 150);
+        meal5.addToIngredients(ing11);
+        meal5.addToIngredients(ing12);
+        meal5.mealDetailsInfo = mealDetails5;
+        meal5.save(flush:true);
+
+        Meal meal6 = new Meal('meal6 - drugie śniadanie', 'xxx6');
+        MealDetailsInfo mealDetails6 = new MealDetailsInfo();
+        mealDetails6 = mealService.countMealDetails(mealDetails6, banan, 200);
+        meal6.addToIngredients(ing13);
+        meal6.mealDetailsInfo = mealDetails6;
+        meal6.save(flush:true);
 
         def volleyball = new Sport('siatkowka', 150).save(flush:true);
         def football = new Sport('football', 200).save(flush:true);
