@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c5e5d40-9224-489e-87d2-ac4b4de3dde1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/postgresql-9.4.1212.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/myApp/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/myApp/User.groovy" />
     </list>
     <ignored path="WirtualnyDietetyk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -831,7 +827,7 @@
       <workItem from="1482326972279" duration="2239000" />
       <workItem from="1482335152887" duration="355000" />
       <workItem from="1482336368302" duration="671000" />
-      <workItem from="1482765413166" duration="621000" />
+      <workItem from="1482765413166" duration="841000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwszy commit">
       <created>1481399620353</created>
@@ -861,11 +857,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481987886477</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Podpięcie bazy danych">
+      <created>1482766196650</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1482766196650</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349995000" />
+    <option name="totallyTimeSpent" value="350215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -948,7 +951,8 @@
     <MESSAGE value="Rozdzielenie Meal na UserMeal i Meal, rozpoczęcie algorytmu generowania diety, dodanie rzeczy do BootStrapa" />
     <MESSAGE value="Algorytm generowania posiłków cd." />
     <MESSAGE value="Dodanie klasy domenowej Dieta, dodanie kolejnych części algorytmu generowania diety" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie klasy domenowej Dieta, dodanie kolejnych części algorytmu generowania diety" />
+    <MESSAGE value="Podpięcie bazy danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="Podpięcie bazy danych" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
