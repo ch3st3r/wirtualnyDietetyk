@@ -25,6 +25,12 @@ class User implements Serializable {
 	static hasMany = [exercises: Exercise]
     static hasOne = [userKcalInfo: UserKcalInfo]
 
+	static mapping = {
+		table 'userTable'
+		version false
+		id column: 'user_id'
+	}
+
 	User(String username, String password) {
 		this()
 		this.username = username
@@ -62,7 +68,4 @@ class User implements Serializable {
         userKcalInfo nullable:true;
 	}
 
-	static mapping = {
-		password column: '`password`'
-	}
 }
