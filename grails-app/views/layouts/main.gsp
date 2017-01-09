@@ -14,12 +14,88 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 		<g:layoutHead/>
-	</head>
+
+	<style>
+		#mainHeader{
+			position: fixed;
+			width: 100%;
+			height: 75px;
+			background-color: rgba(43, 43, 59, 0.9);
+		}
+
+		#headerMenu{
+			display: flex;
+			flex-direction: row;
+			line-height: 75px;
+		}
+
+		.menuItem{
+			color: white;
+			margin-left: 25px;
+			margin-right: 25px;
+		}
+
+		.dashboard{
+			display: flex;
+			flex-direction: row;
+		}
+
+		.dashboardItem{
+			display: none;
+		}
+
+		.item{
+			color: white;
+			margin-right: 25px;
+			margin-left: 25px;
+		}
+	</style>
+
+
+
+</head>
+
+
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+		<div id="mainHeader">
+			<div id="headerMenu">
+				<div class="dashboard menuItem">
+					<div class="dashboardHeader">Dashboard</div>
+					<div class="dashboardItem item">Profil</div>
+					<div class="dashboardItem item">Edycja profilu</div>
+					<div class="dashboardItem item">Moja dieta</div>
+				</div>
+
+				<div class="products menuItem">Produkty</div>
+				<div class="meals menuItem">Posiłki</div>
+			</div>
+		</div>
+		<div id="grailsLogo" role="banner">%{--<a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a>--}%</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>
+
+
+<script>
+	$('.dashboard').hover(
+			function(){
+				$('.separator').css('display', 'block');
+				$('.dashboardItem').css('display', 'block');
+				$('.dashboardHeader').css('background-color', '#2b2b3b');
+			},
+			function(){
+				$('.separator').css('display', 'none');
+				$('.dashboardItem').css('display', 'none');
+				$('.dashboardHeader').css("background-color", "");
+
+
+			}
+	);
+</script>
+
 </html>
+
+

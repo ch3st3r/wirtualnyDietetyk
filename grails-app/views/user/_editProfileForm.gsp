@@ -60,62 +60,84 @@ ${userInstance?.username}
 
 </div>
 
-<div class="bmr">BMR
-    <div class="bmrValue">
-        <g:if test="${userInstance?.userKcalInfo?.bmr}"><g:formatNumber number="${userInstance?.userKcalInfo?.bmr}" maxFractionDigits="0" /></g:if>
-        <g:else>0</g:else>
-    </div>
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
+    <label for="bmr">
+        <g:message code="user.weight.label" default="BMR" />
+    </label>
+    <label class="bmr">
+        <div class="bmrValue">
+            <g:if test="${userInstance?.userKcalInfo?.bmr}"><g:formatNumber number="${userInstance?.userKcalInfo?.bmr}" maxFractionDigits="0" /></g:if>
+            <g:else>0</g:else>
+        </div>
+    </label>
 </div>
 
-<div class="dwe">DWE
-    <div class="dweValue">
-        <g:if test="${userInstance?.userKcalInfo?.dwe}"><g:formatNumber number="${userInstance?.userKcalInfo?.dwe}" maxFractionDigits="0" /></g:if>
-        <g:else>0</g:else>
-    </div>
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
+    <label for="dwe">
+        <g:message code="user.weight.label" default="DWE" />
+    </label>
+    <label class="dwe">
+        <div class="dweValue">
+            <g:if test="${userInstance?.userKcalInfo?.dwe}"><g:formatNumber number="${userInstance?.userKcalInfo?.dwe}" maxFractionDigits="0" /></g:if>
+            <g:else>0</g:else>
+        </div>
+    </label>
 </div>
 
-<div class="exercisesKcal">SPORT
-    <div class="exercisesKcalValue">
-        <g:if test="${userInstance?.userKcalInfo?.exercisesKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.exercisesKcal}" maxFractionDigits="0" /></g:if>
-        <g:else>0</g:else>
-    </div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
+    <label for="sport">
+        <g:message code="user.weight.label" default="SPORT" />
+    </label>
+    <label class="exercisesKcal">
+        <div class="exercisesKcalValue">
+            <g:if test="${userInstance?.userKcalInfo?.exercisesKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.exercisesKcal}" maxFractionDigits="0" /></g:if>
+            <g:else>0</g:else>
+        </div>
+    </label>
 </div>
+
+
+
 
 <div class="fieldcontain">
-    %{--<g:each in="${sportList}">
-        <div style="display:flex;">
-            <div><g:checkBox style="width: 100px; margin-left: 80px" class="sportCheckbox" name="${it.name}" value="${it.name}" checked="false"/>${it.name}</div>
-            <div class="sportTime"><g:field style="margin-left: 25px" name="weight" value="${fieldValue(bean: userInstance, field: 'weight')}"/></div>
-        </div>
-    </g:each>--}%
-
+    <label for="exercises" class="exercisesLabel">
+        <g:message code="user.weight.label" default="EXERCISES" />
+    </label>
+    <label class="sportRow">
     <g:each in="${sportList}" var="sport">
         <g:if test="${sport in userInstance.exercises.sport}">
-            <div style="display:flex;">
-                <div><g:checkBox style="width: 100px; margin-left: 80px" class="sportCheckbox" name="${sport.name}" value="${sport.name}" checked="true"/>${sport.name}</div>
+            <div class="sportDetails" style="display:flex;">
+                <div class="sportName"><g:checkBox class="sportCheckbox" name="${sport.name}" value="${sport.name}" checked="true"/>${sport.name}</div>
                 <g:each in="${userInstance.exercises}" var="exercise">
                     <g:if test="${exercise.sport == sport}">
-                        <div class="sportTime"><g:field style="margin-left: 25px" name="sport" value="${exercise.minutes}"/></div>
+                        <div class="sportTime"><g:field name="sport" value="${exercise.minutes}"/></div>
                     </g:if>
                 </g:each>
             </div>
         </g:if>
         <g:else>
-            <div style="display:flex;">
-                <div><g:checkBox style="width: 100px; margin-left: 80px" class="sportCheckbox" name="${sport.name}" value="${sport.name}" checked="false"/>${sport.name}</div>
-                <div class="sportTime"><g:field style="margin-left: 25px" disabled="true" name="sport" value="0"/></div>
+            <div class="sportDetails" style="display:flex;">
+                <div class="sportName"><g:checkBox class="sportCheckbox" name="${sport.name}" value="${sport.name}" checked="false"/>${sport.name}</div>
+                <div class="sportTime"><g:field  disabled="true" name="sport" value="0"/></div>
             </div>
         </g:else>
     </g:each>
-
-
+    </label>
 </div>
 
-<div class="dailyKcal">DAILY KCAL
-    <div class="dailyKcalValue">
-        <g:if test="${userInstance?.userKcalInfo?.dailyKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.dailyKcal}" maxFractionDigits="0" /></g:if>
-        <g:else>0</g:else></div>
-</div><br>
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
+    <label for="sport">
+        <g:message code="user.weight.label" default="DAILY KCAL" />
+    </label>
+    <label class="dailyKcal">
+        <div class="dailyKcalValue">
+            <g:if test="${userInstance?.userKcalInfo?.dailyKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.dailyKcal}" maxFractionDigits="0" /></g:if>
+            <g:else>0</g:else></div>
+    </label>
+</div>
+
+
 
 
 <div class="fieldcontain">
@@ -143,12 +165,18 @@ ${userInstance?.username}
         <g:radio name="goal" value="1" checked=""/>Utrzymanie wagi
         <g:radio name="goal" value="1,2" checked=""/>Przyrost masy ciała
     </g:else>
-
 </div>
 
-<div class="allKcal">ALL KCALORIES
-    <div class="allKcalValue">
-        <g:if test="${userInstance?.userKcalInfo?.allKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.allKcal}" maxFractionDigits="0" /></g:if>
-        <g:else>0</g:else></div>
-    </div>
-</div><br>
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
+    <label for="sport">
+        <g:message code="user.weight.label" default="ALL KCALORIES" />
+    </label>
+    <label class="allKcal">
+        <div class="allKcalValue">
+            <g:if test="${userInstance?.userKcalInfo?.allKcal}"><g:formatNumber number="${userInstance?.userKcalInfo?.allKcal}" maxFractionDigits="0" /></g:if>
+            <g:else>0</g:else></div>
+    </label>
+</div>
+</div>
+
+

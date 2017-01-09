@@ -26,7 +26,13 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'meal.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="receipt" title="${message(code: 'meal.receipt.label', default: 'Receipt')}" />
+						<g:sortableColumn property="mealDetailsInfo.kcal" title="${message(code: 'meal.receipt.label', default: 'Kcal')}" />
+
+						<g:sortableColumn property="mealDetailsInfo.carbohydrates" title="${message(code: 'meal.receipt.label', default: 'Węglowodany')}" />
+
+						<g:sortableColumn property="mealDetailsInfo.protein" title="${message(code: 'meal.receipt.label', default: 'Białka')}" />
+
+						<g:sortableColumn property="mealDetailsInfo.fats" title="${message(code: 'meal.receipt.label', default: 'Tłuszcze')}" />
 					
 					</tr>
 				</thead>
@@ -36,7 +42,13 @@
 					
 						<td><g:link action="show" id="${mealInstance.id}">${fieldValue(bean: mealInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: mealInstance, field: "receipt")}</td>
+						<td>${fieldValue(bean: mealInstance, field: "mealDetailsInfo.kcal")}</td>
+
+						<td>${fieldValue(bean: mealInstance, field: "mealDetailsInfo.carbohydrates")}</td>
+
+						<td>${fieldValue(bean: mealInstance, field: "mealDetailsInfo.protein")}</td>
+
+						<td>${fieldValue(bean: mealInstance, field: "mealDetailsInfo.fats")}</td>
 					
 					</tr>
 				</g:each>

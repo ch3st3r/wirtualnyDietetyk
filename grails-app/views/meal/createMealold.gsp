@@ -16,12 +16,25 @@
 </head>
 
 <body>
-<g:each in="${products}" var="product">
-    ${product.name}<br>
-</g:each>
+%{-- <g:each in="${products}" var="product">
+     ${product.name}<br>
+ </g:each>
+--}%
+<a href="#create-product" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+<div class="nav" role="navigation">
+    <ul>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+    </ul>
+</div>
 
+<div class="meal" role="main">
+    <h1><g:message code="default.create.label" args="[entityName]" /></h1>
 
-<div class="meal">
+    <div class="mealTitle">
+        <div class="nameOfField">Nazwa posiłku:</div><g:field name="mealName" id="mealName" type="text"></g:field>
+    </div>
+
     <div class="ingredientRow" style="display:flex">
         <div class="selector">
             <select class="js-data-example-ajax">
@@ -32,10 +45,14 @@
             <g:field type="number" step="0.1" name="weight" required="" value="0"/>
         </div>
         <div>
-            <button class="dupa">dupa</button>
+            <button class="add">add</button>
         </div>
-
     </div>
+
+</div>
+
+<div class="mealTitle">
+    <g:textArea id="receipt" name="receipt" value="" rows="5" cols="40"/>
 </div>
 
 <button class="collectData">xxx</button>
@@ -102,26 +119,20 @@
     })
 
     function sendData(){
-        var myObject = new Object();
-        myObject.name = "John";
-        myObject.age = 12;
-        myObject.pets = ["cat", "dog"];
-        var myString = JSON.stringify(myObject);
-
+        var mealName = $('#mealName').val();
+        var receipt = $('#receipt').val();
         var data = collectData();
         var myJsonString = JSON.stringify(data);
-        console.log(myObject);
-        console.log(myString);
         console.log(data);
         console.log(myJsonString);
         $.ajax({
             type: "POST",
             url: "/WirtualnyDietetyk/meal/addMeal",
             success : function(){
-                alert('dupa');
+                /*alert('dupa');*/
             },
-            data: {'dupa': myJsonString},
-            dataType: "json",
+            data: {'dupa': myJsonString, 'mealName': mealName, 'receipt': receipt},
+            /*dataType: "json",*/
             traditional: true,
         });
     }
@@ -169,7 +180,7 @@
 
 
 
-    $('.meal').on('click', '.dupa', function(){
+    $('.meal').on('click', '.add', function(){
         var newSelectRow = $('.ingredientRow:last').clone()
         $(newSelectRow).appendTo('.meal');
         console.log('dupa');

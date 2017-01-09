@@ -23,37 +23,30 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="carbohydrates" title="${message(code: 'product.carbohydrates.label', default: 'Carbohydrates')}" />
-					
-						<g:sortableColumn property="fats" title="${message(code: 'product.fats.label', default: 'Fats')}" />
-					
+						<g:sortableColumn property="name" title="${message(code: 'product.name.label', default: 'Name')}" />
+
 						<g:sortableColumn property="kcal" title="${message(code: 'product.kcal.label', default: 'Kcal')}" />
 					
-						<g:sortableColumn property="name" title="${message(code: 'product.name.label', default: 'Name')}" />
-					
+						<g:sortableColumn property="carbohydrates" title="${message(code: 'product.carbohydrates.label', default: 'Carbohydrates')}" />
+
 						<g:sortableColumn property="protein" title="${message(code: 'product.protein.label', default: 'Protein')}" />
 					
-						<g:sortableColumn property="units" title="${message(code: 'product.units.label', default: 'Units')}" />
-					
+						<g:sortableColumn property="fats" title="${message(code: 'product.fats.label', default: 'Fats')}" />
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${productInstanceList}" status="i" var="productInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "carbohydrates")}</g:link></td>
-					
-						<td>${fieldValue(bean: productInstance, field: "fats")}</td>
-					
+						<td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</td></g:link>
+
 						<td>${fieldValue(bean: productInstance, field: "kcal")}</td>
-					
-						<td>${fieldValue(bean: productInstance, field: "name")}</td>
-					
+
+						<td>${fieldValue(bean: productInstance, field: "carbohydrates")}</td>
+
 						<td>${fieldValue(bean: productInstance, field: "protein")}</td>
-					
-						<td>${fieldValue(bean: productInstance, field: "units")}</td>
-					
+
+						<td>${fieldValue(bean: productInstance, field: "fats")}</td>
 					</tr>
 				</g:each>
 				</tbody>

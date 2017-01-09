@@ -50,4 +50,13 @@ class VirtualNutritionistController {
 
         render 'status ok';
     }
+
+    def deleteUserMeal(){
+        UserMeal.findAll().each{
+            it.delete(flush:true);
+        }
+
+        render 'status ok';
+    }
+
 }

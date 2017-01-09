@@ -24,4 +24,8 @@ class Product {
 
     static constraints = {
     }
+
+/*    static mapping = {
+        id generator: 'sequence'
+    }*/
 }

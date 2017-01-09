@@ -22,7 +22,39 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list product">
-			
+
+				<g:if test="${productInstance?.name}">
+					<li class="fieldcontain">
+						<span id="name-label" class="property-label"><g:message code="product.name.label" default="Name" /></span>
+
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${productInstance}" field="name"/></span>
+					</li>
+				</g:if>
+
+				<g:if test="${productInstance?.weight}">
+					<li class="fieldcontain">
+						<span id="weight-label" class="property-label"><g:message code="product.weight.label" default="Weight" /></span>
+
+						<span class="property-value" aria-labelledby="weight-label"><g:fieldValue bean="${productInstance}" field="weight"/>
+
+						<g:if test="${productInstance?.units}">
+							${productInstance?.units}
+						</g:if>
+
+						</span>
+
+					</li>
+				</g:if>
+
+				<g:if test="${productInstance?.kcal}">
+					<li class="fieldcontain">
+						<span id="kcal-label" class="property-label"><g:message code="product.kcal.label" default="Kcal" /></span>
+
+						<span class="property-value" aria-labelledby="kcal-label"><g:fieldValue bean="${productInstance}" field="kcal"/></span>
+
+					</li>
+				</g:if>
+
 				<g:if test="${productInstance?.carbohydrates}">
 				<li class="fieldcontain">
 					<span id="carbohydrates-label" class="property-label"><g:message code="product.carbohydrates.label" default="Carbohydrates" /></span>
@@ -31,7 +63,16 @@
 					
 				</li>
 				</g:if>
-			
+
+				<g:if test="${productInstance?.protein}">
+					<li class="fieldcontain">
+						<span id="protein-label" class="property-label"><g:message code="product.protein.label" default="Protein" /></span>
+
+						<span class="property-value" aria-labelledby="protein-label"><g:fieldValue bean="${productInstance}" field="protein"/></span>
+
+					</li>
+				</g:if>
+
 				<g:if test="${productInstance?.fats}">
 				<li class="fieldcontain">
 					<span id="fats-label" class="property-label"><g:message code="product.fats.label" default="Fats" /></span>
@@ -40,52 +81,7 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${productInstance?.kcal}">
-				<li class="fieldcontain">
-					<span id="kcal-label" class="property-label"><g:message code="product.kcal.label" default="Kcal" /></span>
-					
-						<span class="property-value" aria-labelledby="kcal-label"><g:fieldValue bean="${productInstance}" field="kcal"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${productInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="product.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${productInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${productInstance?.protein}">
-				<li class="fieldcontain">
-					<span id="protein-label" class="property-label"><g:message code="product.protein.label" default="Protein" /></span>
-					
-						<span class="property-value" aria-labelledby="protein-label"><g:fieldValue bean="${productInstance}" field="protein"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${productInstance?.units}">
-				<li class="fieldcontain">
-					<span id="units-label" class="property-label"><g:message code="product.units.label" default="Units" /></span>
-					
-						<span class="property-value" aria-labelledby="units-label"><g:fieldValue bean="${productInstance}" field="units"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${productInstance?.weight}">
-				<li class="fieldcontain">
-					<span id="weight-label" class="property-label"><g:message code="product.weight.label" default="Weight" /></span>
-					
-						<span class="property-value" aria-labelledby="weight-label"><g:fieldValue bean="${productInstance}" field="weight"/></span>
-					
-				</li>
-				</g:if>
-			
+
 			</ol>
 			<g:form url="[resource:productInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

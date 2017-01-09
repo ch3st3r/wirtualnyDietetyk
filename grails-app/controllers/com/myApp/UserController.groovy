@@ -97,6 +97,7 @@ class UserController {
         }
     }
 
+    @Transactional
     def updateProfile(){
         println params.bmrData;
         User userInstance = springSecurityService.getCurrentUser();

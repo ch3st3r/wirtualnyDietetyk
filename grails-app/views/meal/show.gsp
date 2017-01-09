@@ -22,25 +22,27 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list meal">
-			
+
+				<g:if test="${mealInstance?.name}">
+					<li class="fieldcontain">
+						<span id="name-label" class="property-label"><g:message code="meal.name.label" default="Name" /></span>
+
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${mealInstance}" field="name"/></span>
+
+					</li>
+				</g:if>
+
 				<g:if test="${mealInstance?.ingredients}">
 				<li class="fieldcontain">
 					<span id="ingredients-label" class="property-label"><g:message code="meal.ingredients.label" default="Ingredients" /></span>
-					
-						<span class="property-value" aria-labelledby="ingredients-label"><g:fieldValue bean="${mealInstance}" field="ingredients"/></span>
-					
+						<span class="property-value" aria-labelledby="ingredients-label">
+							<span><g:each in="${mealInstance.ingredients}" var="ingredient">
+								${ingredient.product.name} (${ingredient.weight} ${ingredient.product.units})<br>
+							</g:each>
+						</span
 				</li>
 				</g:if>
-			
-				<g:if test="${mealInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="meal.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${mealInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
+
 				<g:if test="${mealInstance?.receipt}">
 				<li class="fieldcontain">
 					<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Receipt" /></span>
@@ -50,13 +52,20 @@
 				</li>
 				</g:if>
 
-				${mealInstance?.mealDetailsInfo?.kcal} kcal<br>
-				${mealInstance?.mealDetailsInfo?.protein} protein
-				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.protein}" x="4"></meal:percentValue><br>
-				${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
-				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.carbohydrates}" x="4"></meal:percentValue><br>
-				${mealInstance?.mealDetailsInfo?.fats} fats
-				<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.fats}" x="9"></meal:percentValue><br>
+				<g:if test="${mealInstance}">
+					<li class="fieldcontain">
+						<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Makroskładniki" /></span>
+						<span class="property-value" aria-labelledby="receipt-label">
+							${mealInstance?.mealDetailsInfo?.kcal} kcal<br>
+							${mealInstance?.mealDetailsInfo?.protein} protein
+							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.protein}" x="4"></meal:percentValue><br>
+							${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
+							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.carbohydrates}" x="4"></meal:percentValue><br>
+							${mealInstance?.mealDetailsInfo?.fats} fats
+							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.fats}" x="9"></meal:percentValue><br>
+						</span>
+					</li>
+				</g:if>
 
 			</ol>
 			<g:form url="[resource:mealInstance, action:'delete']" method="DELETE">

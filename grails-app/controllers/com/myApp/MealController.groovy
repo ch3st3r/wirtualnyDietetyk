@@ -35,6 +35,7 @@ class MealController {
         return [products: products]
     }
 
+    @Transactional
     def addMeal(){
         println params;
         def meal = JSON.parse(params.dupa);

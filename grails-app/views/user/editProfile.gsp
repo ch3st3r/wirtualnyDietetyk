@@ -45,16 +45,34 @@
 
 <script>
     $('.save').click(function(e){
-       e.preventDefault();
-       var data = collectData();
-       var jsonData = JSON.stringify(data);
-       var url = '/WirtualnyDietetyk/user/updateProfile';
-
-        var funct = function(e){
-
+        e.preventDefault();
+        if(validateForm()){
+            var data = collectData();
+            var jsonData = JSON.stringify(data);
+            var url = '/WirtualnyDietetyk/user/updateProfile';
+            var funct = function(e){
             };
-       myAjax(url, jsonData, funct);
+            myAjax(url, jsonData, funct);
+        } else {
+            alert('bledne dane');
+        }
     });
+
+    function validateForm() {
+        var validator = true;
+
+        if($('#age').val() < 18){
+            validator = false;
+        }
+
+        if($('#weight').val() < 0 || isNaN($('#weight').val())){
+            validator = false;
+        }
+
+
+
+        return validator;
+    }
 
 
     $("input[name='weight']").change(function() {
