@@ -57,12 +57,21 @@
 						<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Makroskładniki" /></span>
 						<span class="property-value" aria-labelledby="receipt-label">
 							${mealInstance?.mealDetailsInfo?.kcal} kcal<br>
-							${mealInstance?.mealDetailsInfo?.protein} protein
+
+							<g:set var="currentMealDetais" value="${mealInstance?.mealDetailsInfo}"/>
+							${mealInstance?.mealDetailsInfo?.protein} proteins
+							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.protein}" x="4"/><br>
+							${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
+							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.carbohydrates}" x="4"></meal:percentValueOfMeal><br>
+							${mealInstance?.mealDetailsInfo?.fats} fats
+							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.fats}" x="9"></meal:percentValueOfMeal><br>
+
+							%{--${mealInstance?.mealDetailsInfo?.protein} proteins
 							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.protein}" x="4"></meal:percentValue><br>
 							${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
 							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.carbohydrates}" x="4"></meal:percentValue><br>
 							${mealInstance?.mealDetailsInfo?.fats} fats
-							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.fats}" x="9"></meal:percentValue><br>
+							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.fats}" x="9"></meal:percentValue><br>--}%
 						</span>
 					</li>
 				</g:if>

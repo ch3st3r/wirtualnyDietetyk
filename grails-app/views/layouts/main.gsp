@@ -23,6 +23,7 @@
 			width: 100%;
 			height: 75px;
 			background-color: rgba(43, 43, 59, 0.9);
+			z-index: 1;
 		}
 
 		#headerMenu{
@@ -62,14 +63,14 @@
 		<div id="mainHeader">
 			<div id="headerMenu">
 				<div class="dashboard menuItem">
-					<div class="dashboardHeader">Dashboard</div>
-					<div class="dashboardItem item">Profil</div>
-					<div class="dashboardItem item">Edycja profilu</div>
-					<div class="dashboardItem item">Moja dieta</div>
+					<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk"><div class="dashboardHeader">Dashboard</div></a>
+					<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk/user/myProfile"><div class="dashboardItem item">Profil</div></a>
+					<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk/user/editProfile"><div class="dashboardItem item">Edycja profilu</div></a>
+					<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk/diet"><div class="dashboardItem item">Moja dieta</div></a>
 				</div>
 
-				<div class="products menuItem">Produkty</div>
-				<div class="meals menuItem">Posiłki</div>
+				<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk/product/index"><div class="products menuItem">Produkty</div></a>
+				<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk/meal/index"><div class="meals menuItem">Posiłki</div></a>
 			</div>
 		</div>
 		<div id="grailsLogo" role="banner">%{--<a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a>--}%</div>

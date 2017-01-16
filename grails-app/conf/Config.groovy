@@ -133,6 +133,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/user/*':          ['ROLE_USER', 'ROLE_ADMIN'],
     '/product/*':       ['ROLE_USER', 'ROLE_ADMIN'],
     '/meal/*':          ['ROLE_USER', 'ROLE_ADMIN'],
+    '/sport/*':         ['ROLE_USER', 'ROLE_ADMIN'],
+    '/diet/*':         ['ROLE_USER', 'ROLE_ADMIN'],
+
+
     '/meal/dupa':       ['permitAll'],
     '/meal/dupa*':       ['permitAll'],
     '/ingredient/*':       ['permitAll'],

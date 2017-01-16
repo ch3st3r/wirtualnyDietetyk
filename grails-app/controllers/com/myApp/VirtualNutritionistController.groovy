@@ -15,8 +15,9 @@ class VirtualNutritionistController {
         Meal currentMeal;
         UserMeal userMeal;
         Diet diet = new Diet();
+        User user = springSecurityService.getCurrentUser();
 
-        for(int i = 1; i<6; i++) {
+        for(int i = 1; i<8; i++) {
             double previousCoefficient = 100;
             double coefficient;
 
@@ -46,6 +47,7 @@ class VirtualNutritionistController {
             }
 
         }
+        diet.user = user;
         diet.save(flush:true);
 
         render 'status ok';

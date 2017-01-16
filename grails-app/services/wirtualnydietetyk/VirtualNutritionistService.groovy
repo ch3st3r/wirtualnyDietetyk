@@ -25,10 +25,10 @@ class VirtualNutritionistService {
 
     def countCoefficient(Meal meal, currentUserMacro){
         MealDetailsInfo mealDetails = meal.mealDetailsInfo
-
-        double coefficient = Math.abs(mealDetails.protein*4/mealDetails.kcal - currentUserMacro.Bperc);
-        coefficient += Math.abs(mealDetails.carbohydrates*4/mealDetails.kcal - currentUserMacro.Wperc);
-        coefficient += Math.abs(mealDetails.fats*9/mealDetails.kcal - currentUserMacro.Tperc);
+        double bwt = mealDetails.protein*4 + mealDetails.carbohydrates*4 + mealDetails.fats*9;
+        double coefficient = Math.abs(mealDetails.protein*4/bwt - currentUserMacro.Bperc);
+        coefficient += Math.abs(mealDetails.carbohydrates*4/bwt - currentUserMacro.Wperc);
+        coefficient += Math.abs(mealDetails.fats*9/bwt - currentUserMacro.Tperc);
         return coefficient;
     }
 
