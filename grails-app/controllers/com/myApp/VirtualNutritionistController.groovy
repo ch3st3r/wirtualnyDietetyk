@@ -17,8 +17,8 @@ class VirtualNutritionistController {
         Diet diet = new Diet();
         User user = springSecurityService.getCurrentUser();
 
-        for(int i = 1; i<8; i++) {
-            double previousCoefficient = 100;
+        for(int i = 1; i<36; i++) {
+            double previousCoefficient = 1000;
             double coefficient;
 
             Meal.list().each {
@@ -42,7 +42,7 @@ class VirtualNutritionistController {
             }
             diet.addToUserMeal(userMeal);
 
-            if(i%3 == 0){
+            if(i%5 == 0){
                 currentUserMacro = virtualNutritionistService.getCurrentUserMacro(springSecurityService.getCurrentUser());
             }
 

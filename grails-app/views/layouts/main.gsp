@@ -52,6 +52,73 @@
 			margin-right: 25px;
 			margin-left: 25px;
 		}
+
+		header{
+			display:none;
+		}
+
+		@media screen and (max-width: 480px) {
+
+			header{
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				background: #3f3f4e;
+				height: 55px;
+				line-height: 60px;
+			}
+
+			.hamburger{
+				background: #3f3f4e;
+				position: absolute;
+				top: 0;
+				right: 0;
+				line-height: 45px;
+				padding: 5px 15px 0px 15px;
+				color: #fff;
+				border: 0;
+				font-size: 1.4em;
+				font-weight: bold;
+				cursor: pointer;
+				outline: none;
+				z-index: 10000000000000;
+			}
+			.cross{
+				background: #3f3f4e;
+				position: absolute;
+				top: 0px;
+				right: 0;
+				height: 45px;
+				padding: 13px 15px 0px 0px;
+				color: #fff;
+				border: 0;
+				font-size: 3em;
+				font-weight: bold;
+				cursor: pointer;
+				outline: none;
+				z-index: 10000000000000;
+			}
+
+
+			#mainHeader {
+				position: relative;
+				height: 100%;
+			}
+
+			#headerMenu {
+				flex-direction: column;
+				line-height: 45px;
+				align-items: center;
+			}
+
+			#grailsLogo {
+				display: none;
+			}
+
+
+
+		}
+
 	</style>
 
 
@@ -60,7 +127,11 @@
 
 
 	<body>
-		<div id="mainHeader">
+		<header>
+			<button class="hamburger">&#9776;</button>
+			<button class="cross">&#735;</button>
+		</header>
+		<div id="mainHeader" class="responsiveMainHeader">
 			<div id="headerMenu">
 				<div class="dashboard menuItem">
 					<a style="color: white; text-decoration: none;" href="/WirtualnyDietetyk"><div class="dashboardHeader">Dashboard</div></a>
@@ -91,10 +162,26 @@
 				$('.separator').css('display', 'none');
 				$('.dashboardItem').css('display', 'none');
 				$('.dashboardHeader').css("background-color", "");
-
-
 			}
 	);
+
+
+
+	$( ".cross" ).hide();
+	$( ".responsiveMainHeader" ).hide();
+	$( ".hamburger" ).click(function() {
+		$( ".responsiveMainHeader" ).slideToggle( "slow", function() {
+			$( ".hamburger" ).hide();
+			$( ".cross" ).show();
+		});
+	});
+
+	$( ".cross" ).click(function() {
+		$( ".responsiveMainHeader" ).slideToggle( "slow", function() {
+			$( ".cross" ).hide();
+			$( ".hamburger" ).show();
+		});
+	});
 </script>
 
 </html>

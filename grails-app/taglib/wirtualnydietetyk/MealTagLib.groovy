@@ -22,6 +22,12 @@ class MealTagLib {
         out << round(percent, 2)*100;
     }
 
+    def roundValue = {attrs ->
+        double value = 0;
+        value = attrs?.value?.asType(double)
+        out << round(value, 2)
+    }
+
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 

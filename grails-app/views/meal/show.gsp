@@ -12,12 +12,12 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="index"><g:message code="default.list.labell" default="Lista posiłków" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.labell" default="Utwórz posiłek" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-meal" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1><g:message code="default.show.labell" default="Posiłek" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -25,7 +25,7 @@
 
 				<g:if test="${mealInstance?.name}">
 					<li class="fieldcontain">
-						<span id="name-label" class="property-label"><g:message code="meal.name.label" default="Name" /></span>
+						<span id="name-label" class="property-label"><g:message code="meal.name.label" default="Nazwa" /></span>
 
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${mealInstance}" field="name"/></span>
 
@@ -34,7 +34,7 @@
 
 				<g:if test="${mealInstance?.ingredients}">
 				<li class="fieldcontain">
-					<span id="ingredients-label" class="property-label"><g:message code="meal.ingredients.label" default="Ingredients" /></span>
+					<span id="ingredients-label" class="property-label"><g:message code="meal.ingredients.label" default="Składniki" /></span>
 						<span class="property-value" aria-labelledby="ingredients-label">
 							<span><g:each in="${mealInstance.ingredients}" var="ingredient">
 								${ingredient.product.name} (${ingredient.weight} ${ingredient.product.units})<br>
@@ -45,7 +45,7 @@
 
 				<g:if test="${mealInstance?.receipt}">
 				<li class="fieldcontain">
-					<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Receipt" /></span>
+					<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Przepis" /></span>
 					
 						<span class="property-value" aria-labelledby="receipt-label"><g:fieldValue bean="${mealInstance}" field="receipt"/></span>
 					
@@ -56,15 +56,15 @@
 					<li class="fieldcontain">
 						<span id="receipt-label" class="property-label"><g:message code="meal.receipt.label" default="Makroskładniki" /></span>
 						<span class="property-value" aria-labelledby="receipt-label">
-							${mealInstance?.mealDetailsInfo?.kcal} kcal<br>
+							Kalorie: <meal:roundValue value="${mealInstance?.mealDetailsInfo?.kcal}"></meal:roundValue><br>
 
 							<g:set var="currentMealDetais" value="${mealInstance?.mealDetailsInfo}"/>
-							${mealInstance?.mealDetailsInfo?.protein} proteins
-							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.protein}" x="4"/><br>
-							${mealInstance?.mealDetailsInfo?.carbohydrates} carbohydrates
-							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.carbohydrates}" x="4"></meal:percentValueOfMeal><br>
-							${mealInstance?.mealDetailsInfo?.fats} fats
-							<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.fats}" x="9"></meal:percentValueOfMeal><br>
+							Białko: <meal:roundValue value="${mealInstance?.mealDetailsInfo?.protein}"></meal:roundValue>g
+							(<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.protein}" x="4"/> %)<br>
+							Węglowodany: <meal:roundValue value="${mealInstance?.mealDetailsInfo?.carbohydrates}"></meal:roundValue>g
+							(<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.carbohydrates}" x="4"/> %)<br>
+							Tłuszcze: <meal:roundValue value="${mealInstance?.mealDetailsInfo?.fats}"></meal:roundValue>g
+							(<meal:percentValueOfMeal meal="${currentMealDetais?.id}" bwt="${currentMealDetais?.fats}" x="9"/> %)<br>
 
 							%{--${mealInstance?.mealDetailsInfo?.protein} proteins
 							<meal:percentValue kcal="${mealInstance?.mealDetailsInfo?.kcal}" bwt="${mealInstance?.mealDetailsInfo?.protein}" x="4"></meal:percentValue><br>

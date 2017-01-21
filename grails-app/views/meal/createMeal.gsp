@@ -24,12 +24,12 @@
 <div class="nav" role="navigation">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+        <li><g:link class="list" action="index"><g:message code="default.list.labell" default="Lista posiłków" args="[entityName]" /></g:link></li>
     </ul>
 </div>
 
 <div class="meal" role="main">
-    <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+    <h1><g:message code="default.create.labell" default="Utwórz posiłek" args="[entityName]" /></h1>
 
     <div class="mealTitle">
         <div class="nameOfField">Nazwa posiłku:</div><g:field name="mealName" id="mealName" type="text"></g:field>
@@ -39,17 +39,17 @@
     <div class="ingredientRow" style="display:flex">
         <div class="selector">
             <select class="js-data-example-ajax">
-                <option value="3620194" selected="selected">Choose product...</option>
+                <option value="3620194" selected="selected">Wybierz produkt...</option>
             </select>
         </div>
         <div>
             <g:field type="number" class="weight" step="0.1" name="weight" required="" value="0"/>
         </div>
         <div>
-            <button class="buttonAdd">add</button>
+            <button class="buttonAdd">Dodaj</button>
         </div>
         <div>
-            <button class="buttonRemove">remove</button>
+            <button class="buttonRemove">Usuń</button>
         </div>
     </div>
 

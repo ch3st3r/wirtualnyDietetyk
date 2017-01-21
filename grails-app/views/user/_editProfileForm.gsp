@@ -1,25 +1,23 @@
 <%@ page import="com.myApp.User" %>
 
 
-${userInstance?.username}
-
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'age', 'error')} ">
     <label for="age">
-        <g:message code="user.enabled.label" default="Age" />
+        <g:message code="user.enabled.label" default="Wiek" />
     </label>
     <g:field type="number" name="age" value="${userInstance?.age}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="weight">
-        <g:message code="user.weight.label" default="Weight" />
+        <g:message code="user.weight.label" default="Waga" />
     </label>
     <g:field name="weight" value="${fieldValue(bean: userInstance, field: 'weight')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'sex', 'error')} ">
     <label for="sex">
-        <g:message code="user.enabled.label" default="Sex" />
+        <g:message code="user.enabled.label" default="Płeć" />
     </label>
     <g:if test="${userInstance?.sex == "women"}">
         <g:radio name="sex" value="women" checked="true"/>Kobieta
@@ -34,7 +32,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lifeStyleMode', 'error')} ">
     <label for="lifeStyleType">
-        <g:message code="user.enabled.label" default="Lifestyle Type" />
+        <g:message code="user.enabled.label" default="Styl życia" />
     </label>
 
     <g:if test="${userInstance?.lifeStyleMode == 1.4}">
@@ -62,7 +60,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="bmr">
-        <g:message code="user.weight.label" default="BMR" />
+        <g:message code="user.weight.label" default="Tempo metabolizmu spoczynkowego" />
     </label>
     <label class="bmr">
         <div class="bmrValue">
@@ -74,7 +72,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="dwe">
-        <g:message code="user.weight.label" default="DWE" />
+        <g:message code="user.weight.label" default="Dzienny wydatek energetyczny" />
     </label>
     <label class="dwe">
         <div class="dweValue">
@@ -87,7 +85,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="sport">
-        <g:message code="user.weight.label" default="SPORT" />
+        <g:message code="user.weight.label" default="Kalorie spalone podczas uprawianych sportów" />
     </label>
     <label class="exercisesKcal">
         <div class="exercisesKcalValue">
@@ -102,7 +100,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain">
     <label for="exercises" class="exercisesLabel">
-        <g:message code="user.weight.label" default="EXERCISES" />
+        <g:message code="user.weight.label" default="Lista sportów" />
     </label>
     <label class="sportRow">
     <g:each in="${sportList}" var="sport">
@@ -128,7 +126,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="sport">
-        <g:message code="user.weight.label" default="DAILY KCAL" />
+        <g:message code="user.weight.label" default="Dzienne zapotrzebowanie kaloryczne" />
     </label>
     <label class="dailyKcal">
         <div class="dailyKcalValue">
@@ -142,7 +140,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain">
     <label for="goal">
-        <g:message code="user.enabled.label" default="Goal" />
+        <g:message code="user.enabled.label" default="Cel" />
     </label>
 
     <g:if test="${userInstance?.goal == 0.85}">
@@ -169,7 +167,7 @@ ${userInstance?.username}
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'weight', 'error')} required">
     <label for="sport">
-        <g:message code="user.weight.label" default="ALL KCALORIES" />
+        <g:message code="user.weight.label" default="Całkowite dzienne zapotrzebowanie kaloryczne" />
     </label>
     <label class="allKcal">
         <div class="allKcalValue">
